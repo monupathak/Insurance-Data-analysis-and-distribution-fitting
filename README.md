@@ -1,10 +1,25 @@
 # Insurance Claim Severity Analysis and Distribution Fitting
 
-##This project is part of Course project in IE-802 i.e. Insurance claim modeling and Risk Quantification. policy suggestions
+## This project is part of Course project in IE-802 i.e. Insurance claim modeling and Risk Quantification. policy suggestions
 
 ## Overview
 
-This project analyzes insurance claim amounts and evaluates probability distributions for modeling claim severity. The analysis focuses on the strongly right-skewed nature of insurance losses and compares single-distribution models with a two-segment body-tail model.
+This project analyzes insurance claim amounts and evaluates probability distributions for modeling claim severity. The analysis focuses on the strongly right-skewed nature of insurance losses and the need to capture extreme claims when assessing risk.
+
+The objective of this investigation is to understand how claim severity behaves in a real insurance dataset, identify the most appropriate statistical distribution for the observed losses, and quantify the tail risk that drives a disproportionate share of total claim value.
+
+## Investigation Objective
+
+The assignment represented in `Assignment_3 (3).pdf` investigates the following questions:
+
+* How are insurance claim amounts distributed across the portfolio?
+* Is the claim distribution approximately symmetric, or is it strongly right-skewed?
+* Which probability distributions provide the best fit for the overall claim severity data?
+* Do standard single-distribution models fail to capture the extreme tail of large losses?
+* Can a two-component body-tail model provide a better approximation of both ordinary and catastrophic claims?
+* How do risk measures such as VaR and TVaR change when the upper tail is modeled explicitly?
+
+In other words, this repository is a practical investigation into insurance claim severity modeling: from exploratory analysis and distribution fitting to tail-risk quantification and actuarial interpretation.
 
 Accurate claim-severity modeling supports:
 
@@ -69,22 +84,22 @@ Model performance is assessed using:
 * **Bayesian Information Criterion (BIC):** Applies a stronger complexity penalty than AIC as sample size increases
 * **Graphical diagnostics:** Histograms, fitted density curves, empirical CDFs, and Q-Q or P-P plots
 
-Lower AIC and BIC values indicate a better fit among models evaluated on the same observations and scale. Because parameters are estimated from the data, formal KS p-values should be interpreted cautiously unless calibrated using a parametric bootstrap.
+Lower AIC and BIC values indicate a better fit among models evaluated on the same observations and scale. Because parameters are estimated from the data, formal KS p-values should be interpreted cautiously.
 
 ### 4. Two-Segment Body-Tail Model
 
 No single candidate distribution adequately captures both the central mass and the extreme upper tail. The data is therefore modeled using two components:
 
-| Segment |   Approximate share | Model                    |
-| ------- | ------------------: | ------------------------ |
-| Body    | Lower 80% of claims | Lognormal                |
-| Tail    | Upper 20% of claims | Pareto-type distribution |
+| Segment | Approximate share | Model |
+| ------- | ----------------: | ------------------------ |
+| Body | Lower 80% of claims | Lognormal |
+| Tail | Upper 20% of claims | Pareto-type distribution |
 
 The split is based on a selected percentile threshold. The body model represents ordinary claim severity, while the tail model captures the slower decay of extreme losses.
 
 This segmented specification produces a substantially better fit than the tested single-distribution alternatives, with an observed AIC improvement of approximately 35% in the current analysis.
 
-For rigorous use, the threshold should be validated through sensitivity analysis, mean-excess plots, parameter-stability plots, and out-of-sample performance. The body and tail components should also be combined as a properly normalized spliced distribution.
+For rigorous use, the threshold should be validated through sensitivity analysis, mean-excess plots, parameter-stability plots, and out-of-sample performance. The body and tail components should align smoothly without creating artificial jumps in the estimated density or distribution function.
 
 ### 5. Risk Metrics
 
@@ -115,15 +130,15 @@ The analysis evaluates VaR and TVaR at high confidence levels, including 95% and
 
 ### Pricing
 
-The fitted severity distribution can support premium development when combined with claim frequency, exposure, expenses, and a risk margin. Tail-sensitive metrics can help prevent systematic underpricing of high-severity exposure.
+The fitted severity distribution can support premium development when combined with claim frequency, exposure, expenses, and a risk margin. Tail-sensitive metrics can help prevent systematic underpricing in the presence of rare but highly damaging claims.
 
 ### Reserving and Capital
 
-VaR, TVaR, and simulated aggregate-loss distributions can inform reserve adequacy, economic capital, and solvency analysis. The exact confidence level and risk measure depend on the applicable regulatory framework and business objective.
+VaR, TVaR, and simulated aggregate-loss distributions can inform reserve adequacy, economic capital, and solvency analysis. The exact confidence level and risk measure depend on the applicable regulatory framework and risk appetite.
 
 ### Underwriting
 
-When policy and customer-level covariates are available, the analysis can be extended to identify characteristics associated with higher expected severity or tail risk. Claim amounts alone are not sufficient to classify individual customers as high risk.
+When policy and customer-level covariates are available, the analysis can be extended to identify characteristics associated with higher expected severity or tail risk. Claim amounts alone are not sufficient for underwriting decisions, but they reveal the underlying risk profile.
 
 ### Reinsurance
 
@@ -137,11 +152,10 @@ The fitted distribution can be used to estimate the financial effects of deducti
 
 ```text
 .
-├── Insurance_claim_data.ipynb   # Analysis, distribution fitting, and diagnostics
-└── README.md                    # Project documentation
+├── Assignment_3 (3).pdf        # Course assignment/report on the investigation
+├── Insurance_claim_data.ipynb  # Analysis, distribution fitting, and diagnostics
+└── README.md                   # Project documentation
 ```
-
-Update this section if the repository contains separate data, figures, or source-code directories.
 
 ## Getting Started
 
@@ -225,7 +239,7 @@ Replace `<repository-url>` and `<repository-name>` with the actual repository de
 
 ## Disclaimer
 
-This project is intended for educational and analytical purposes. The results should not be used directly for pricing, reserving, underwriting, or regulatory decisions without independent actuarial validation, appropriate exposure data, and consideration of jurisdiction-specific requirements.
+This project is intended for educational and analytical purposes. The results should not be used directly for pricing, reserving, underwriting, or regulatory decisions without independent actuarial review and domain-specific validation.
 
 ## Author
 
