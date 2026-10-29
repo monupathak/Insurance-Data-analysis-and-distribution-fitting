@@ -1,5 +1,7 @@
 # Insurance Claim Severity Analysis and Distribution Fitting
 
+##This project is part of Course project in IE-802 i.e. Insurance claim modeling and Risk Quantification. policy suggestions
+
 ## Overview
 
 This project analyzes insurance claim amounts and evaluates probability distributions for modeling claim severity. The analysis focuses on the strongly right-skewed nature of insurance losses and compares single-distribution models with a two-segment body-tail model.
