@@ -1,6 +1,6 @@
 # Insurance Claim Severity Analysis and Distribution Fitting
 
-## This project is part of Course project in IE-802 i.e. Insurance claim modeling and Risk Quantification. policy suggestions
+> This project was developed for **IE 802: OR Applications in Infrastructure and Services Sector**. It focuses on statistical modeling, tail-risk assessment, and data-driven underwriting and policy design suggestions.
 
 ## Overview
 
@@ -10,7 +10,7 @@ The objective of this investigation is to understand how claim severity behaves 
 
 ## Investigation Objective
 
-The assignment represented in `Assignment_3 (3).pdf` investigates the following questions:
+The investigation (referenced in the `assignment` branch) explores the following questions:
 
 * How are insurance claim amounts distributed across the portfolio?
 * Is the claim distribution approximately symmetric, or is it strongly right-skewed?
@@ -152,10 +152,12 @@ The fitted distribution can be used to estimate the financial effects of deducti
 
 ```text
 .
-├── Assignment_3 (3).pdf        # Course assignment/report on the investigation
-├── Insurance_claim_data.ipynb  # Analysis, distribution fitting, and diagnostics
-└── README.md                   # Project documentation
+├── detailed_claim_severity_modeling_and_interpretation.ipynb  # In-depth severity modeling, tail analysis, and actuarial interpretation
+├── Insurance_claim_data.ipynb                                 # Exploratory analysis, distribution fitting, and diagnostics
+└── README.md                                                  # Comprehensive project documentation
 ```
+
+> **Note:** The original course assignment prompt (`Assignment_3 (3).pdf`) is preserved in the [`assignment`](https://github.com/monupathak/Insurance-Data-analysis-and-distribution-fitting/tree/assignment) branch.
 
 ## Getting Started
 
