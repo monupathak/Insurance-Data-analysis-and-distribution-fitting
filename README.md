@@ -1,6 +1,6 @@
 # Insurance Claim Severity Analysis and Distribution Fitting
 
-## This project is part of Course project in IE-802 i.e. Insurance claim modeling and Risk Quantification. policy suggestions
+> This project was developed for **IE 802: OR Applications in Infrastructure and Services Sector**. It focuses on statistical modeling, tail-risk assessment, and data-driven underwriting and policy design suggestions.
 
 ## Overview
 
